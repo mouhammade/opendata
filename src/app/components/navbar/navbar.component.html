@@ -1,0 +1,14 @@
+<mz-navbar>
+  <a href="#" class="brand-logo">Logo</a>
+  <mz-navbar-item-container [align]="'right'">
+    <mz-navbar-item><a routerLink="accueil">Acceuil</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink='statisques'>Statistiques</a></mz-navbar-item>
+    <mz-navbar-item><a routerLink='ajout-donnee'>Ajout donnée</a></mz-navbar-item>
+    <mz-navbar-item><a>Parcelles</a></mz-navbar-item>
+    <mz-navbar-item><a>Sections</a></mz-navbar-item>
+    <mz-navbar-item><a>Contact</a></mz-navbar-item>
+    <mz-navbar-item *ngIf='!connected'><a routerLink='se-connecter'>Se connecter</a></mz-navbar-item>
+    <mz-navbar-item *ngIf='connected'><a (click)='logOut()'>Se deconnecter</a></mz-navbar-item>
+    <mz-navbar-item><a>Services</a></mz-navbar-item>
+  </mz-navbar-item-container>
+</mz-navbar>

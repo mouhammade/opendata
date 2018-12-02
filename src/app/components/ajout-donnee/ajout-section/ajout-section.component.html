@@ -1,0 +1,24 @@
+<form [formGroup]='ajoutSectionForm' (ngSubmit)='enregistrer()'>
+	{{message}}
+  <mat-form-field class="col s12 m12">
+  	<mat-label>Syscol</mat-label>
+    <input matInput #syscol placeholder="00000000" formControlName="syscol" required maxlength="8" minlength="8">
+    <mat-hint align="start"><strong>Numéro syscol ça doit être  {{syscol.maxLength}} chiffres</strong> </mat-hint>
+    <mat-hint align="end">{{syscol.value.length}} / {{syscol.maxLength}}</mat-hint>
+  </mat-form-field>
+  <mat-form-field class="col s12 m12">
+  	<mat-label>Numero section</mat-label>
+    <input matInput #num_section placeholder="000" formControlName="num_section" required maxlength="3" minlength="3">
+    <mat-hint align="start"><strong>Numéro section ça doit être  {{num_section.maxLength}} chiffres</strong> </mat-hint>
+    <mat-hint align="end">{{num_section.value.length}} / {{num_section.maxLength}}</mat-hint>
+  </mat-form-field>
+  <mat-form-field class="col s12 m12 section-form">
+  	<mat-label>Identifiant section</mat-label>
+    <input matInput #id_sect placeholder="000000000000" formControlName="id_section" maxlength="11" [value]="syscol.value+''+num_section.value">
+    <mat-hint align="start"><strong>Identifiant section = Numéro section concacténer avec le syscol</strong> </mat-hint>
+    <mat-hint align="end">{{id_sect.value.length}} / {{id_sect.maxLength}}</mat-hint>
+ </mat-form-field>
+  <div class="col s12 m12 right-align submit-btn">
+    <button [disabled]='ajoutSectionForm.invalid' mat-flat-button color="accent">Enregistrer</button>
+  </div>
+</form>
